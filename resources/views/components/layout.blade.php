@@ -16,5 +16,12 @@
                 {{ $slot }}
             </div>
         </section>
+
+        @if (session()->has('success')){
+            <div class="fixed bg-green-500 text-white py-2 px-4 right-3 bottom-4 text-sm">
+                <p>{{ session()->get('success') }}</p>
+            </div>
+        }
+        @endif
     </body>
 </html>
