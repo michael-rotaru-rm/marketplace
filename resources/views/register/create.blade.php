@@ -15,7 +15,8 @@
                     </label>
                     <input
                         class="border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name" name="name" type="text" placeholder="Name" value="{{ old('name') }}" required>
+                        id="name" name="name" type="text" placeholder="Name" value="{{ old('name') }}"
+                        required>
 
                     @error('name')
                         <p class="text-red-500 text-xs">{{ $message }}</p>
@@ -27,8 +28,8 @@
                     </label>
                     <input
                         class="border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username" name="username" type="text" placeholder="Username" value="{{ old('username') }}"
-                        required>
+                        id="username" name="username" type="text" placeholder="Username"
+                        value="{{ old('username') }}" required>
 
                     @error('username')
                         <p class="text-red-500 text-xs">{{ $message }}</p>
@@ -40,7 +41,8 @@
                     </label>
                     <input
                         class="border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email" name="email" type="text" placeholder="Email" value="{{ old('email') }}" required>
+                        id="email" name="email" type="text" placeholder="Email" value="{{ old('email') }}"
+                        required>
                     @error('email')
                         <p class="text-red-500 text-xs">{{ $message }}</p>
                     @enderror

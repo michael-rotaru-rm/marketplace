@@ -16,7 +16,8 @@
                     </label>
                     <input
                         class="border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email" name="email" type="text" placeholder="Email" value="{{ old('email') }}" required>
+                        id="email" name="email" type="text" placeholder="Email" value="{{ old('email') }}"
+                        required>
                     @error('email')
                         <p class="text-red-500 text-xs">{{ $message }}</p>
                     @enderror
@@ -46,10 +47,7 @@
                         Register
                     </a>
                 </div>
-
             </form>
-
         </div>
     </div>
-
 </x-layout>

@@ -9,14 +9,13 @@
             </svg>
         </label>
         <input class="hidden" type="checkbox" id="menu-toggle" />
+        
 
         <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/">Shop</a>
-                    </li>
-                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                            href="#">About</a></li>
+                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/">Shop</a></li>
+                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,7 +34,7 @@
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
             @auth
-                <span> Welcome {{ auth()->user()->name }}! </span>
+                <a href="/admin/products" class="inline-flex hover:underline"> Welcome {{ auth()->user()->name }}! </span></a>
                 <form method="POST" action="/logout">
                     @csrf
                     <button type="submit" class="ml-2">Log out</button>
