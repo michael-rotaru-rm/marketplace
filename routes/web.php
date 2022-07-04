@@ -36,3 +36,10 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+Route::get('admin/products/create', [AdminProductController::class, 'create'])->middleware('auth');
+Route::post('admin/products/create', [AdminProductController::class, 'store'])->middleware('auth');
+Route::get('admin/products', [AdminProductController::class, 'index'])->middleware('auth');
+Route::get('admin/products/{product}/edit', [AdminProductController::class, 'edit'])->middleware('auth');
+Route::patch('admin/products/{product}', [AdminProductController::class, 'update'])->middleware('auth');
+Route::delete('admin/products/{product}', [AdminProductController::class, 'destroy'])->middleware('auth');
