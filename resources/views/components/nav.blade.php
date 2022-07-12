@@ -1,4 +1,4 @@
-<nav id="header" class="w-full z-30 top-0 py-1">
+<nav id="header" class="w-full z-30 top-0 py-1"  x-data="{ show: false }">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
         <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -15,7 +15,7 @@
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                     <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/">Shop</a></li>
-                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Search</a></li>
+                    <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#" @click="show = !show">Search</a></li>
                 </ul>
             </nav>
         </div>
@@ -64,7 +64,8 @@
         </div>
     </div>
 
-    <div class="w-full container mx-auto">
+
+    <div class="w-full container mx-auto" x-show="show">
         <form method="GET" action="#">   
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
             <div class="relative">
@@ -73,7 +74,7 @@
                 </div>
                 <input type="search" name="search" id="search" class="block p-4 pl-10 w-full text-sm text-black bg-white border border-gray-300 focus:outline-0" placeholder="Search..." value="{{request('search')}}" required>
                 <button type="submit" class="text-white absolute right-14 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-                <button type="button" class="text-white absolute right-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-sm px-4 py-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">x</button>
+                <button type="button" class="text-white absolute right-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-sm px-4 py-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" @click="show = false">x</button>
             </div>
         </form>
     </div>
