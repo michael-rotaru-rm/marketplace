@@ -10,6 +10,7 @@ class AdminProductController extends Controller
 {
     public function index(){
         return view('admin.products.index',[
+            //todo pagination
             'products' => Product::paginate(50)
         ]);
     }

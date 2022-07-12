@@ -5,7 +5,7 @@
         <div class="bg-white rounded-md w-full">
             <div class=" flex items-center justify-between pb-6">
                 <div class="w-full">
-                    <a href="/admin/products/create" class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer float-right mb-2">Add new</a>
+                    <a href="/admin/products/create" class="bg-blue-600 px-4 py-2 text-white text-sm font-semibold tracking-wide cursor-pointer float-right mb-2">Add new</a>
 
                     <table class="min-w-full leading-normal shadow rounded-lg overflow-hidden">
                         <tbody>                            

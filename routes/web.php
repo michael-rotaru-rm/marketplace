@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
@@ -18,23 +17,14 @@ use App\Http\Controllers\SessionsController;
 |
 */
 
-Route::get('/', function () {
-    return view('products/list',['products' => Product::all()]);
-});
-
-
-Route::get('/product/{product:slug}', function (Product $product) {
-    return view('products/show', [
-        'product' => $product
-    ]);
-});
+Route::get('/', [ProductController::class, 'list']);
+Route::get('/product/{product:slug}', [ProductController::class, 'show']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
-
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 Route::get('admin/products/create', [AdminProductController::class, 'create'])->middleware('auth');

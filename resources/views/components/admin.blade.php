@@ -1,7 +1,7 @@
 @props(['heading'])
 
 <main class="block w-full">
-    <h1 class="w-full text-left text-2xl uppercase font-bold mb-4 block">{{$heading}}</h1>
+    <h1 class="w-full text-left text-2xl uppercase font-bold my-4 block">{{$heading}}</h1>
 
     <div class="w-full flex">
         <div class="w-3/12 inline-flex ">

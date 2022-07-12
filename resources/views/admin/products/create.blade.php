@@ -2,7 +2,7 @@
     <x-nav />
 
     <x-admin heading="Create product">
-        <form method="POST" action="/products/create" class="w-full" enctype="multipart/form-data">
+        <form method="POST" action="/admin/products/create" class="w-full" enctype="multipart/form-data">
             @csrf
             <x-form.input name="title"/>
             <x-form.input name="slug"/>
