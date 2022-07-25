@@ -1,30 +1,36 @@
 <x-layout>
     <x-nav />
-    {{-- <nav id="store" class="w-full z-30 top-0 px-6 py-1">
-                <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
-                    <div class="flex items-center" id="store-nav-content">
 
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                            <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24">
-                                <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
-                            </svg>
-                        </a>
+    <div class="inline-flex w-full justify-end" x-show="show">
+        <x-category-dropdown />
 
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                            <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24">
-                                <path
-                                    d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
-                            </svg>
-                        </a>
-
-                    </div>
+        <div class="w-400 relatige flex ml-2">
+            <form method="GET" action="#">
+                <div class="relative inline-flex">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value={{ request('category') }} />
+                    @endif
+                    <input type="search" name="search" id="search"
+                        class="color-black block px-4 py-2.5 rounded shadow-md overflow-hidden focus:outline-0 text-sm"
+                        placeholder="Search..." value="{{ request('search') }}">
+                    <button type="submit"
+                        class="text-white right-14 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium text-sm px-4 py-2">Search</button>
                 </div>
-            </nav> --}}
+            </form>
+        </div>
+    </div>
 
-    @foreach ($products as $product)
-        <x-prod-card :product="$product" />
-    @endforeach
+    @if (request('search'))
+        <h1 class="block w-full text-center p-6 uppercase mt-4 text-xl">Results for:<span
+                class="font-bold">{{ request('search') }}</span></h1>
+    @endif
+
+    @if ($products->count())
+        @foreach ($products as $product)
+            <x-prod-card :product="$product" />
+        @endforeach
+    @else
+        <p class="w-full text-center">No products found </p>
+    @endif
 
 </x-layout>
