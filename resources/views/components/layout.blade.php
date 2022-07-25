@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Store</title>
 
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 </head>
