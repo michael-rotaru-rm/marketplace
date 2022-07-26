@@ -2,13 +2,15 @@
     <x-nav />
 
     <div class="inline-flex w-full justify-end" x-show="show">
-        <x-category-dropdown />
+        {{-- <x-category-dropdown /> --}}
+        {{-- <x-subcategory-dropdown /> --}}
+        <livewire:subcategory-dropdown />
 
         <div class="w-400 relatige flex ml-2">
             <form method="GET" action="#">
                 <div class="relative inline-flex">
-                    @if (request('category'))
-                        <input type="hidden" name="category" value={{ request('category') }} />
+                    @if (request('subcategory'))
+                        <input type="hidden" name="subcategory" value={{ request('subcategory') }} />
                     @endif
                     <input type="search" name="search" id="search"
                         class="color-black block px-4 py-2.5 rounded shadow-md overflow-hidden focus:outline-0 text-sm"

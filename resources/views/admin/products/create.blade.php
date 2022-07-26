@@ -10,13 +10,13 @@
             <x-form.textarea name="description"/>
             <x-form.input name="photo" type="file"/>
             <x-form.field>
-                <x-form.label name="Category"/>
-                <select name="category_id" id="category" class="border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <x-form.label name="Subcategory"/>
+                <select name="subcategory_id" id="category" class="border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @php
-                        $categories = \App\Models\Category::all();   
+                        $subcategories = \App\Models\Subcategory::all();   
                     @endphp
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ old("category_id") == $category->id ? "selected" : "" }}>{{ $category->name }}</option>
+                    @foreach($subcategories as $subcategory)
+                        <option value="{{ $category->id }}" {{ old("subcategory_id") == $subcategory->id ? "selected" : "" }}>{{ $subcategory->name }}</option>
                     @endforeach
                 </select>
                 <x-form.error name="category"/>

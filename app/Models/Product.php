@@ -16,7 +16,7 @@ class Product extends Model
      */
     protected $fillable = [
         'user_id',
-        'category_id',
+        'subcategory_id',
         'slug',
         'title',
         'description',
@@ -31,17 +31,15 @@ class Product extends Model
                 ->orWhere('description','like','%' . $filters['search'] . '%')
             )
         );
-        
-
    
-        $query->when($filters['category'] ?? false, fn($query, $category) => 
-            $query->whereHas('category', fn ($query) => 
-                $query->where('slug', $category)
+        $query->when($filters['subcategory'] ?? false, fn($query, $subcategory) => 
+            $query->whereHas('subcategory', fn ($query) => 
+                $query->where('slug', $subcategory)
             )
         );
     }
-
-    public function category(){
-        return $this->belongsTo(Category::class);
+    
+    public function subcategory(){
+        return $this->belongsTo(Subcategory::class);
     }
 }

@@ -11,8 +11,12 @@
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <livewire:styles />
 </head>
     <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+        <livewire:scripts />
+
         <section class="bg-white">
             <div class="container mx-auto flex items-center flex-wrap pt-2 pb-12">
                 {{ $slot }}
