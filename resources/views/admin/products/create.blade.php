@@ -16,7 +16,7 @@
                         $subcategories = \App\Models\Subcategory::all();   
                     @endphp
                     @foreach($subcategories as $subcategory)
-                        <option value="{{ $category->id }}" {{ old("subcategory_id") == $subcategory->id ? "selected" : "" }}>{{ $subcategory->name }}</option>
+                        <option value="{{ $subcategory->id }}" {{ old("subcategory_id") == $subcategory->id ? "selected" : "" }}>{{ $subcategory->name }}</option>
                     @endforeach
                 </select>
                 <x-form.error name="category"/>

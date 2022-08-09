@@ -22,12 +22,12 @@
          class="relative mr-2">
          <!-- Button -->
          <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')"
-             type="button" class="bg-white px-5 py-2.5 rounded-md shadow text-sm ">
-             @if (!empty($curentCategory->name))
-                 <span>{{ $curentCategory->name }}</span>
-             @else
-                 <span>Category</span>
-             @endif
+             type="button" class="bg-white px-5 py-2.5 rounded-md shadow text-sm">
+            @if (!empty($curentCategory->name))
+                <span>{{ $curentCategory->name }}</span>
+            @else
+                <span>Category</span>
+            @endif
              <span aria-hidden="true">&darr;</span>
          </button>
 
@@ -85,7 +85,7 @@
                  class="absolute left-0 mt-2 w-40 bg-white rounded shadow-md overflow-hidden ">
                  @foreach ($subcategories as $subcategory)
                      <div>
-                         <a href="/?subcategory={{ $subcategory->slug }}&{{ http_build_query(request()->except('subcategory')) }}"
+                         <a href="/?category={{ $curentCategory->slug }}&subcategory={{ $subcategory->slug }}&{{ http_build_query(request()->except('subcategory')) }}"
                              class="block w-full px-4 py-2 text-left text-sm hover:bg-blue-700 hover:text-white">
                              {{ $subcategory->name }}
                          </a>

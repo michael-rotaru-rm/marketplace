@@ -10,6 +10,7 @@
             <form method="GET" action="#">
                 <div class="relative inline-flex">
                     @if (request('subcategory'))
+                        <input type="hidden" name="category" value={{ request('category') }} />
                         <input type="hidden" name="subcategory" value={{ request('subcategory') }} />
                     @endif
                     <input type="search" name="search" id="search"
