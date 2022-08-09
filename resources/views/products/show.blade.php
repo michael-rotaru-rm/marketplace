@@ -8,7 +8,7 @@
         </div>
 
         <div class="w-full md:w-1/2 p-6">
-            <p class="mt-4 mb-4">{{ $category_name }}</p>
+            <p class="mt-4 mb-4">{{ $category_name.'/'.$subcategory_name }}</p>
             <p class="text-xl font-bold">{{ $product->title }}</p>
             <p class="mt-4">{{ $product->description }}</p>
             <p class="mt-4 text-xl font-bold">{{ $product->price }} €</p>

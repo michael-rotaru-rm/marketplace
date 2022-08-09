@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 use App\Models\Category;
 use App\Models\Subcategory;
 
-class CategoryDropdown extends Component
+class SubcategoryDropdown extends Component
 {
     /**
      * Create a new component instance.
@@ -24,9 +24,12 @@ class CategoryDropdown extends Component
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render()
-    {           
+    {   
+        $curentCategory = Category::where('slug', request('category'))->first();
+        $subcategories = Subcategory::where('category_id', $curentCategory?->id)->get();
+
         return view('components.category-dropdown',[
-            'categories' => Category::all(),
+            'subcategories' => $subcategories
         ]);
     }
 }

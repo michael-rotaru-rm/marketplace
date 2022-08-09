@@ -21,7 +21,7 @@ class AdminProductController extends Controller
 
     public function store(){
         $attributes = request()->validate([
-            'category_id' => ['required', Rule::exists('categories','id')],
+            'subcategory_id' => ['required', Rule::exists('subcategories','id')],
             'title' => 'required|max:255|min:3',
             'slug' => ['required', Rule::unique('products','slug')],
             'description' => 'required|max:1000|min:4',
@@ -43,7 +43,7 @@ class AdminProductController extends Controller
 
     public function update(Product $product){
         $attributes = request()->validate([
-            'category_id' => ['required', Rule::exists('categories','id')],
+            'subcategory_id' => ['required', Rule::exists('subcategories','id')],
             'title' => 'required|max:255|min:3',
             'slug' => ['required', Rule::unique('products','slug')->ignore($product->id)],
             'description' => 'required|max:1000|min:4',
