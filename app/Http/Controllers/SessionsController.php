@@ -7,28 +7,30 @@ use Illuminate\Http\Request;
 class SessionsController extends Controller
 {
     public function create(){
-        return view('sessions.create');
+        // return view('sessions.create');
+        return inertia('Auth/Login');
     }
 
-    public function store(){
+    public function store(Request $request){
 
-        $attributes = request()->validate([
+        $attributes = $request->validate([
             'email' => 'required|email|max:255|min:3',
             'password' => 'required|max:255|min:4'
         ]);
 
         if(auth()->attempt($attributes)){
-            session()->regenerate();
-            return redirect('/')->with("success", "Welcome back!");
+            $request->session()->regenerate();
+            return redirect()->intended(); 
+            // return redirect('/')->with("success", "Welcome back!");
         }
 
         return back()
             ->withInput()
             ->withErrors(['email' => 'Invalid credentials!']);
     }
-        
+         
     public function destroy(){
         auth()->logout();
-        return redirect('/')->with('success','Goodbye!');
+        return redirect('/');
    }
 }
