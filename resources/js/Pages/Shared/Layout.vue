@@ -1,5 +1,5 @@
 <template>
-  <Nav :username="username" :isauth="isAuth" />
+  <Nav :username="username" :isauth="isAuth"/>
   <section class="bg-white">
     <div class="container mx-auto flex items-center flex-wrap pt-2 pb-12">
       <slot />

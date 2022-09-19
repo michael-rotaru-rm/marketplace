@@ -72,9 +72,8 @@
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3';
+import {Link, useForm} from '@inertiajs/inertia-vue3';
 import Layout from "../Shared/Layout.vue";
-import {useForm} from "@inertiajs/inertia-vue3";
 
 let form = useForm({
   name: '',
@@ -86,5 +85,4 @@ let form = useForm({
 let submit = () => {
   form.post('/register');
 };
- 
 </script>

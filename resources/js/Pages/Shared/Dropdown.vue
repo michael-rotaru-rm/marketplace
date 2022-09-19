@@ -1,6 +1,6 @@
 <template>
   <div class="custom-select relative block min-w-[200px] ml-2">
-    <div v-if="items.length" class="relative mr-2">
+    <div v-if="items.length" class="relative mr-2 z-10">
       <button
         type="button"
         class="bg-white px-5 py-2.5 rounded-md shadow text-sm w-full text-left"

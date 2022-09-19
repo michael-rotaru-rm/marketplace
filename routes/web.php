@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AxiosTestController;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,10 @@ use App\Http\Controllers\SessionsController;
 */
 
 Route::get('/', [ProductController::class, 'list']);
+Route::get('axios_test',  function(){
+    return inertia('AxiosTest');
+});
+
 Route::get('/product/{product:slug}', [ProductController::class, 'show']);
 Route::get('login', [SessionsController::class, 'create'])->name('login');
 Route::post('login', [SessionsController::class, 'store']);
@@ -29,5 +35,7 @@ Route::get('admin/products/create', [AdminProductController::class, 'create'])->
 Route::post('admin/products/create', [AdminProductController::class, 'store'])->middleware('auth');
 Route::get('admin/products', [AdminProductController::class, 'index'])->middleware('auth');
 Route::get('admin/products/{product}/edit', [AdminProductController::class, 'edit'])->middleware('auth');
-Route::patch('admin/products/{product}', [AdminProductController::class, 'update'])->middleware('auth');
+Route::post('admin/products/{product}', [AdminProductController::class, 'update'])->middleware('auth');
 Route::delete('admin/products/{product}', [AdminProductController::class, 'destroy'])->middleware('auth');
+
+Route::get('/axios_test/api', [AxiosTestController::class, 'api_call']);

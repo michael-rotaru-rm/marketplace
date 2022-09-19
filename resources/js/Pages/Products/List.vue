@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="inline-flex w-full justify-end">
+    <div class="inline-flex w-full justify-end z-1000">
         <div class="w-400 relatige flex ml-2">
             <div class="relative inline-flex">
                 <Dropdown label="Category" :initialSelected="state.categorySlug" :items="categories" @onSelected="handleCategorySelected"/>
