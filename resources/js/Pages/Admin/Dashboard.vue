@@ -76,7 +76,7 @@
                     class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
                   >
                     <p class="text-gray-900 whitespace-no-wrap">
-                      {{ product.created_at }}
+                      {{ formatDate(product.created_at) }}
                     </p>
                   </td>
 
@@ -129,12 +129,14 @@
 <script>
 import Layout from "../Shared/Layout.vue";
 import AdminNav from "../Shared/AdminNav.vue";
+import Utils from '../Shared/Utils.vue'
+
 import {Link} from '@inertiajs/inertia-vue3';
 export default {
   props: {
     products: Object,
   },
-
+  mixins: [Utils],
   components: { Layout, AdminNav, Link },
 };
 </script>

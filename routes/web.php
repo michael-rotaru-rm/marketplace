@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use App\Http\Controllers\AxiosTestController;
+use App\Http\Controllers\RAOController;
 use Inertia\Inertia;
 
 /*
@@ -20,10 +20,6 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [ProductController::class, 'list']);
-Route::get('axios_test',  function(){
-    return inertia('AxiosTest');
-});
-
 Route::get('/product/{product:slug}', [ProductController::class, 'show']);
 Route::get('login', [SessionsController::class, 'create'])->name('login');
 Route::post('login', [SessionsController::class, 'store']);
@@ -38,4 +34,11 @@ Route::get('admin/products/{product}/edit', [AdminProductController::class, 'edi
 Route::post('admin/products/{product}', [AdminProductController::class, 'update'])->middleware('auth');
 Route::delete('admin/products/{product}', [AdminProductController::class, 'destroy'])->middleware('auth');
 
-Route::get('/axios_test/api', [AxiosTestController::class, 'api_call']);
+Route::get('/axios_test',  function(){
+    return inertia('AxiosTest');
+});
+
+Route::get('/rao/get_public_offfers', [RAOController::class, 'get_public_offfers']);
+Route::get('rao',  function(){
+    return inertia('RAO');
+});

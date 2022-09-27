@@ -12,10 +12,11 @@ export default {
   },
   methods: {
     handleClick: function(){
-        console.log(123);
         axios
-        .get('axios_test/api')
-        .then(response => (this.info = response))
+        .get('rao/get_public_offfers')
+        .then(response => {
+          this.info = response.data;
+        })
     }
   }
 };
